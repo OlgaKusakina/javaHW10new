@@ -1,5 +1,6 @@
 package ru.netology.HW10;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -137,6 +138,92 @@ public class ManagerTest {
 
 
     }
+    @Test
+    public void findLastPosterEqualThanLimit() {
+        Manager manager = new Manager(6);
+
+
+        manager.addFilm("film7");
+        manager.addFilm("film8");
+        manager.addFilm("film9");
+        manager.addFilm("film10");
+        manager.addFilm("film11");
+        manager.addFilm("film12");
+
+
+        String[] expected = {
+                "film12",
+                "film11",
+                "film10",
+                "film9",
+                "film8",
+                "film7"
+
+
+        };
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    public void findLastPosterMoreThanLimit() {
+        Manager manager = new Manager(5);
+
+
+        manager.addFilm("film7");
+        manager.addFilm("film8");
+        manager.addFilm("film9");
+        manager.addFilm("film10");
+        manager.addFilm("film11");
+        manager.addFilm("film12");
+
+
+        String[] expected = {
+                "film12",
+                "film11",
+                "film10",
+                "film9",
+                "film8"
+
+
+        };
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    public void findLastPosterLessThanLimit() {
+        Manager manager = new Manager(7);
+
+
+        manager.addFilm("film7");
+        manager.addFilm("film8");
+        manager.addFilm("film9");
+        manager.addFilm("film10");
+        manager.addFilm("film11");
+        manager.addFilm("film12");
+
+
+        String[] expected = {
+                "film12",
+                "film11",
+                "film10",
+                "film9",
+                "film8",
+                "film7"
+
+
+        };
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
 }
 
 

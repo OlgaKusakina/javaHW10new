@@ -20,7 +20,7 @@ public class Manager {
             tmp[i] = films[i];
         }
 
-        tmp[films.length] = film;
+        tmp[tmp.length - 1] = film;
         films = tmp;
     }
 
@@ -33,7 +33,7 @@ public class Manager {
         if (films.length >= limit) {
             resultLength = limit;
         } else {
-            resultLength = limit;
+            resultLength = films.length;
         }
         String[] result = new String[resultLength];
         for (int i = 0; i < resultLength; i++) {
